@@ -1,6 +1,8 @@
-import Image from "next/image";
+interface HeadlineProps {
+    page: string;
+}
 
-export default function Headline(props) {
+export default function Headline(props: HeadlineProps) {
 
   console.log(props.page);
 
