@@ -2,7 +2,7 @@ interface HeadlineProps {
     page: string;
 }
 
-export default function Headline(props: HeadlineProps) {
+export function Headline(props: HeadlineProps) {
 
   console.log(props.page);
 
