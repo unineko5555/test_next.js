@@ -2,7 +2,11 @@ import Image from "next/image";
 import { Links } from "../components/Links";
 import { Headline } from "@/components/Headline";
 
-export function Main(props) {
+interface props {
+  page: string;
+}
+
+export function Main(props: props) {
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
