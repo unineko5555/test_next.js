@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Links } from "../components/Links";
+import { Links } from "@/components/Links";
 import { Headline } from "@/components/Headline";
 
 interface props {
