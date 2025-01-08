@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
-import { useEffect, useState, MouseEvent } from "react";
+import { useEffect, useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
   const [count, setCount] = useState(1);
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = () => {
     setCount((count) => count + 1);
     setCount((count) => count + 1);
   };
