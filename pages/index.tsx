@@ -2,9 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
-import { useEffect, useCallback } from "react";
-import { MouseEvent } from "react";
-import Link from "next/link";
+import { useEffect, useState, MouseEvent } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,14 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  const foo = 1;
+  const [count, setCount] = useState(1);
 
-  const handleClick = useCallback((e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    console.log(e.currentTarget.href);
-    alert(foo);
-  }, []);
-
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    setCount((count) => count + 1);
+    setCount((count) => count + 1);
+  };
+  
   useEffect(() => {
     console.log("マウント時");
     document.body.style.backgroundColor = "lightblue";
@@ -35,12 +32,13 @@ export default function Home() {
     };
   }, []);
 
+  console.log(count);
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
       <Header />
-      <Link href="/about" onClick={handleClick}>
-        ボタン
-      </Link>
+      <h1>{count}</h1>
+      <button onClick={handleClick}>ボタン</button>
       <Main page="index" />
       <Footer />
     </div>
