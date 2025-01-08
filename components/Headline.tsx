@@ -5,7 +5,7 @@ interface HeadlineProps {
 
 export function Headline(props: HeadlineProps) {
 
-  console.log(props);
+//   console.log(props);
 
   return (
     <div>
