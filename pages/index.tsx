@@ -19,7 +19,6 @@ export default function Home() {
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
 
-
   const handleClick = useCallback(() => {
     if (count < 10) {
       setCount((count) => count + 1);
@@ -30,7 +29,7 @@ export default function Home() {
     setIsShow((isShow) => !isShow); 
   }, []);
 
-  const handleChange = useCallback((e) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > 5) {
       alert("5文字以内で入力してください");
       return;
