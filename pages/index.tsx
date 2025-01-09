@@ -2,7 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Main } from "@/components/Main";
 import { Header } from "@/components/Header";
-import { useCallback, useEffect, useState } from "react";
+import { useCounter } from "@/pages/hooks/useCounter";
+import { useInputArray } from "@/pages/hooks/useInputArray";
+import { useBglightBlue } from "@/pages/hooks/useBglightBlue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,46 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  const [count, setCount] = useState(1);
-  const [text, setText] = useState("");
-  const [isShow, setIsShow] = useState(true);
-  const [array, setArray] = useState<(number | string)[]>([]);
-
-  const handleClick = useCallback(() => {
-    if (count < 10) {
-      setCount((prevcount) => prevcount + 1);
-    }                                                                                               
-  }, [count]);
-
-  const handleDisplay = useCallback(() => {
-    setIsShow((previsShow) => !previsShow); 
-  }, []);
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length > 5) {
-      alert("5文字以内で入力してください");
-      return;
-    }
-    setText(e.target.value.trim());
-  }, []);
-
-  const handleAdd = useCallback(() => {
-    setArray((prevArray) => {
-      if (prevArray.some((item) => item === text)) {
-        alert("同じ要素がすでに存在します");
-        return prevArray;
-      };
-      return [...prevArray, text];
-    });
-  }, [text]);
-  
-  useEffect(() => {
-    document.body.style.backgroundColor = "lightblue";
-
-    return () => {
-      document.body.style.backgroundColor = "";
-    };
-  }, [count]);
+  const { count, isShow, handleClick, handleDisplay } = useCounter();
+  const { text, array, handleChange, handleAdd } = useInputArray();
+  useBglightBlue();
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
