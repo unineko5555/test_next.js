@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Links } from "@/components/Links";
-import { Headline } from "@/components/Headline";
+import { Links } from "@/src/components/Links";
+import { Headline } from "@/src/components/Headline";
 
 interface props {
   page: string;

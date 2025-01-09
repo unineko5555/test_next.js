@@ -1,10 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Footer } from "@/components/Footer";
-import { Main } from "@/components/Main";
-import { Header } from "@/components/Header";
-import { useCounter } from "@/hooks/useCounter";
-import { useInputArray } from "@/hooks/useInputArray";
-import { useBglightBlue } from "@/hooks/useBglightBlue";
+import { Footer } from "@/src/components/Footer";
+import { Main } from "@/src/components/Main";
+import { Header } from "@/src/components/Header";
+import { useCounter } from "@/src/hooks/useCounter";
+import { useInputArray } from "@/src/hooks/useInputArray";
+import { useBglightBlue } from "@/src/hooks/useBglightBlue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
