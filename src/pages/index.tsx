@@ -2,9 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/src/components/Footer";
 import { Main } from "@/src/components/Main";
 import { Header } from "@/src/components/Header";
-import { useCounter } from "@/src/hooks/useCounter";
-import { useInputArray } from "@/src/hooks/useInputArray";
-import { useBglightBlue } from "@/src/hooks/useBglightBlue";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +13,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function Home() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
-  useBglightBlue();
+interface HomeProps {
+  count: number;
+  isShow: boolean;
+  handleClick: () => void;
+  handleDisplay: () => void;
+  text: string;
+  array: string[];
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleAdd: () => void;
+}
+
+export default function Home(props: HomeProps) {
+  console.log(props);
+  const { count, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd } = props;
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
