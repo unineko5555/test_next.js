@@ -25,11 +25,20 @@ interface AboutProps {
   handleAdd: () => void;
 }
 
-export default function About({
-  count, doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd
-}: AboutProps) {
+const About = ({
+  doubleCount,
+  isShow,
+  handleClick,
+  handleDisplay,
+  text,
+  array,
+  handleChange,
+  handleAdd,
+}: AboutProps) => {
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+    >
       <Header />
       {isShow ? <h1>{doubleCount}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
@@ -37,7 +46,7 @@ export default function About({
       <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleAdd}>追加</button>
       <ul>
-        {array.map(item => {
+        {array.map((item) => {
           return <li key={item}>{item}</li>;
         })}
       </ul>
@@ -46,3 +55,5 @@ export default function About({
     </div>
   );
 }
+
+export default About;

@@ -9,10 +9,10 @@ interface LinksProps {
   items: LinkItem[];
 }
 
-export function Links({ items }: LinksProps) {
+export const Links = ({ items }: LinksProps) => {
   return (
     <div className="flex gap-4 items-center flex-col sm:flex-row">
-      {items.map(item => {
+      {items.map((item) => {
         return (
             <a
             key={item.text}

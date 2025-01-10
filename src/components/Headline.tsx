@@ -6,7 +6,7 @@ interface HeadlineProps {
     children: React.ReactNode;
 }
 
-export function Headline(props: HeadlineProps) {
+export const Headline = (props: HeadlineProps) => {
   return (
     <div>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
