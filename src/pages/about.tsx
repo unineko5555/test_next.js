@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 
 interface AboutProps {
   count: number;
+  doubleCount: number;
   isShow: boolean;
   handleClick: () => void;
   handleDisplay: () => void;
@@ -25,12 +26,12 @@ interface AboutProps {
 }
 
 export default function About({
-  count, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd
+  count, doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd
 }: AboutProps) {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}>
       <Header />
-      {isShow ? <h1>{count}</h1> : null}
+      {isShow ? <h1>{doubleCount}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange} />
