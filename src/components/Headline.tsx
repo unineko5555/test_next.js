@@ -1,12 +1,12 @@
+import { MouseEventHandler } from "react";
+
 interface HeadlineProps {
+    handleReduce: MouseEventHandler<HTMLButtonElement> | undefined;
     page: string;
     children: React.ReactNode;
 }
 
 export function Headline(props: HeadlineProps) {
-
-//   console.log(props);
-
   return (
     <div>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
@@ -18,6 +18,7 @@ export function Headline(props: HeadlineProps) {
             .
         </li>
         <li>Save and see your changes instantly.</li>
+        <button onClick={props.handleReduce}>減らす</button>
         </ol>
     </div>
   );
